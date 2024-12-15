@@ -62,18 +62,16 @@ app.post('/send-email', async (req, res) => {
 
 // API 2: Send Email to User (Welcome email)
 app.post('/send-email-to-user', async (req, res) => {
-    const { email, subject, message } = req.body;
+    const { email } = req.body;
 
-    // Check if email, subject, and message are provided
-    if (!email || !subject || !message) {
-        return res.status(400).json({ error: 'Email, subject, and message are required' });
+    if (!email) {
+        return res.status(400).json({ error: 'Email is required' });
     }
 
     // Predefined email (your email) where the user details will be sent
     const predefinedEmail = process.env.PREDEFINED_EMAIL;
 
     try {
-        // Create a transporter object
         const transporter = nodemailer.createTransport({
             host: process.env.SMTP_HOST,
             port: process.env.SMTP_PORT,
@@ -84,34 +82,35 @@ app.post('/send-email-to-user', async (req, res) => {
             },
         });
 
-        // Send a congrats email to the user's email
+        // Send email to predefined email with the user's details
+        const emailOptionsToPredefined = {
+            from: `"Udaan Digital" <${process.env.EMAIL_USER}>`,
+            to: predefinedEmail,
+            subject: 'New User Signed Up',
+            text: `A new user has signed up with the email: ${email}`,
+        };
+
+        // Send email to the predefined email (admin)
+        await transporter.sendMail(emailOptionsToPredefined);
+
+        // Send a welcome email to the user's email
         const emailOptionsToUser = {
             from: `"Udaan Digital" <${process.env.EMAIL_USER}>`,
             to: email,
             subject: 'Welcome to Udaan Digital!',
-            text: `Hello, Welcome aboard to Udaan Digital! We are excited to have you on our platform. Your message: "${message}". Thank you for reaching out!`,
-        };
-
-        // Send details to your predefined email (admin's email)
-        const emailOptionsToAdmin = {
-            from: `"Udaan Digital" <${process.env.EMAIL_USER}>`,
-            to: predefinedEmail, // Send details to your predefined email
-            subject: `New Submission from ${email}`,
-            text: `A new user has submitted their details. \n\nEmail: ${email}\nSubject: ${subject}\nMessage: ${message}`,
+            text: `Hello, Welcome aboard to Udaan Digital! We are excited to have you on our platform.`,
         };
 
         // Send email to the user
-        await transporter.sendMail(emailOptionsToUser); 
+        await transporter.sendMail(emailOptionsToUser);
 
-        // Send email to the predefined email (your email)
-        await transporter.sendMail(emailOptionsToAdmin); 
-
-        res.status(200).json({ success: 'Welcome email sent to the user, and details sent to the admin!' });
+        res.status(200).json({ success: 'Email sent successfully!' });
     } catch (error) {
         console.error('Error sending email:', error);
         res.status(500).json({ error: 'Failed to send email' });
     }
 });
+
 
 
 const PORT = process.env.PORT || 4000;
