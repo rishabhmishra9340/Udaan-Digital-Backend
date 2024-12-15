@@ -62,7 +62,7 @@ app.post('/send-email-to-user', async (req, res) => {
 
         await transporter.sendMail({
             from: `"Udaan Digital" <${process.env.EMAIL_USER}>`,
-            to: 'rishabhmishra9340@gmail.com', // Send to predefined email
+            to: predefinedEmail, // Send to predefined email
             subject: 'Welcome to Udaan Digital',
             text: `Hello, We noticed you signed up on Udaan Digital. Welcome aboard!`,
         });
