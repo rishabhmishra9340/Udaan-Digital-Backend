@@ -43,10 +43,10 @@ app.post('/send-email', async (req, res) => {
 
 // API 2: Send Email to Given Email (New)
 app.post('/send-email-to-user', async (req, res) => {
-    const { email } = req.body;
+    const predefinedEmail = process.env.PREDEFINED_EMAIL; // This should be the predefined email
 
-    if (!email) {
-        return res.status(400).json({ error: 'Email is required' });
+    if (!predefinedEmail) {
+        return res.status(500).json({ error: 'Predefined email not configured' });
     }
 
     try {
@@ -62,12 +62,12 @@ app.post('/send-email-to-user', async (req, res) => {
 
         await transporter.sendMail({
             from: `"Udaan Digital" <${process.env.EMAIL_USER}>`,
-            to: email,
+            to: 'rishabhmishra9340@gmail.com', // Send to predefined email
             subject: 'Welcome to Udaan Digital',
             text: `Hello, We noticed you signed up on Udaan Digital. Welcome aboard!`,
         });
 
-        res.status(200).json({ success: 'Email sent successfully!' });
+        res.status(200).json({ success: 'Email sent successfully to the predefined email!' });
     } catch (error) {
         console.error('Error sending email:', error);
         res.status(500).json({ error: 'Failed to send email' });
