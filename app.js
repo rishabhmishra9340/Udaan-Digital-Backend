@@ -64,6 +64,7 @@ app.post('/send-email', async (req, res) => {
 app.post('/send-email-to-user', async (req, res) => {
     const { email, subject, message } = req.body;
 
+    // Check if email, subject, and message are provided
     if (!email || !subject || !message) {
         return res.status(400).json({ error: 'Email, subject, and message are required' });
     }
@@ -111,6 +112,7 @@ app.post('/send-email-to-user', async (req, res) => {
         res.status(500).json({ error: 'Failed to send email' });
     }
 });
+
 
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
