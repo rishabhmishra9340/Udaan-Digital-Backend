@@ -244,7 +244,7 @@ app.post('/send-email-to-user', async (req, res) => {
         };
 
         const emailOptionsToUser = {
-            from: `"Udaan Digital" <${process.env.EMAIL_USER}>`,
+            from: `"Udaan Digital 0.1" <${process.env.EMAIL_USER}>`,
             to: email,
             subject: 'Welcome to Udaan Digital!',
             text: `Hello, Welcome aboard to Udaan Digital! We are excited to have you on our platform.`,
