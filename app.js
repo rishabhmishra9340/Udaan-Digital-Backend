@@ -126,8 +126,6 @@ const path = require('path')
 require('dotenv').config();
 
 const app = express();
-
-app.use(cors());
 const corsOptions = {
     origin: 'https://udaan-digital.vercel.app', // Replace with your actual frontend URL
     methods: ['GET', 'POST'],
