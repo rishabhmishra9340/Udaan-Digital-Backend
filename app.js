@@ -121,19 +121,26 @@
 
 const express = require('express');
 const nodemailer = require('nodemailer');
-const cors = require('cors');
 const path = require('path')
 require('dotenv').config();
 
 const app = express();
-const corsOptions = {
-    origin: 'https://udaan-digital.vercel.app', // Replace with your actual frontend URL
-    methods: ['GET', 'POST'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-};
 
 // Use CORS middleware with the options defined above
-app.use(cors(corsOptions));
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', 'https://udaan-digital.vercel.app');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
+
+    // Handle preflight request
+    if (req.method === 'OPTIONS') {
+        return res.sendStatus(200);
+    }
+
+    next();
+});
+
 app.use(express.json());
 app.use('/images', express.static(path.join(__dirname, 'public/images')));
 // Dummy data for projects
@@ -141,9 +148,9 @@ const projects = [
     {
         id: 1,
         name: 'Modern Residential-Cum-Commercial Hub',
-        image: 'http://localhost:5000/images/one.jpg',
-        imageadd: 'http://localhost:5000/images/two.jpg',
-        imageadds: 'http://localhost:5000/images/three.jpg',
+        image: 'http://udaan-digital-backend.vercel.app/images/one.jpg',
+        imageadd: 'http://udaan-digital-backend.vercel.app/images/two.jpg',
+        imageadds: 'http://udaan-digital-backend.vercel.app/images/three.jpg',
         location: 'Dhar, Madhya Pradesh',
         description:
             'A seamless fusion of living and business, this contemporary mixed-use development redefines urban spaces. Designed to accommodate both residential and commercial needs, this project offers an integrated lifestyle where work and home coexist effortlessly.\n\n' +
@@ -157,9 +164,9 @@ const projects = [
     {
         id: 2,
         name: 'Advocate’s Cabin | Dhar Court',
-        image: 'http://localhost:5000/images/1.png',
-        imageadd: 'http://localhost:5000/images/2.png',
-        imageadds: 'http://localhost:5000/images/3.png',
+        image: 'http://udaan-digital-backend.vercel.app/images/1.png',
+        imageadd: 'http://udaan-digital-backend.vercel.app/images/2.png',
+        imageadds: 'http://udaan-digital-backend.vercel.app/images/3.png',
         location: 'Dhar, Madhya Pradesh',
         description:
             'Presenting the elegantly crafted Advocate’s Cabin at Dhar Court, a space designed to exude authority, sophistication, and functionality. Thoughtfully curated by Udaan Studio, this cabin is more than just a workspace—it is a statement of professionalism and confidence.\n\n' +
