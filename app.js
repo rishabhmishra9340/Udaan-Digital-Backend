@@ -148,9 +148,9 @@ const projects = [
     {
         id: 1,
         name: 'Modern Residential-Cum-Commercial Hub',
-        image: 'http://udaan-digital-backend.vercel.app/images/one.jpg',
-        imageadd: 'http://udaan-digital-backend.vercel.app/images/two.jpg',
-        imageadds: 'http://udaan-digital-backend.vercel.app/images/three.jpg',
+        image: 'https://udaan-digital-backend-1.onrender.com/images/one.jpg',
+        imageadd: 'https://udaan-digital-backend-1.onrender.com/images/two.jpg',
+        imageadds: 'https://udaan-digital-backend-1.onrender.com/images/three.jpg',
         location: 'Dhar, Madhya Pradesh',
         description:
             'A seamless fusion of living and business, this contemporary mixed-use development redefines urban spaces. Designed to accommodate both residential and commercial needs, this project offers an integrated lifestyle where work and home coexist effortlessly.\n\n' +
@@ -164,9 +164,9 @@ const projects = [
     {
         id: 2,
         name: 'Advocate’s Cabin | Dhar Court',
-        image: 'http://udaan-digital-backend.vercel.app/images/1.png',
-        imageadd: 'http://udaan-digital-backend.vercel.app/images/2.png',
-        imageadds: 'http://udaan-digital-backend.vercel.app/images/3.png',
+        image: 'https://udaan-digital-backend-1.onrender.com/images/1.png',
+        imageadd: 'https://udaan-digital-backend-1.onrender.com/images/2.png',
+        imageadds: 'https://udaan-digital-backend-1.onrender.com/images/3.png',
         location: 'Dhar, Madhya Pradesh',
         description:
             'Presenting the elegantly crafted Advocate’s Cabin at Dhar Court, a space designed to exude authority, sophistication, and functionality. Thoughtfully curated by Udaan Studio, this cabin is more than just a workspace—it is a statement of professionalism and confidence.\n\n' +
