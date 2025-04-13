@@ -128,6 +128,14 @@ require('dotenv').config();
 const app = express();
 
 app.use(cors());
+const corsOptions = {
+    origin: 'https://udaan-digital.vercel.app', // Replace with your actual frontend URL
+    methods: ['GET', 'POST'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+};
+
+// Use CORS middleware with the options defined above
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use('/images', express.static(path.join(__dirname, 'public/images')));
 // Dummy data for projects
