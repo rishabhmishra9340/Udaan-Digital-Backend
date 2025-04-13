@@ -159,7 +159,7 @@ const projects = [
             'Design Highlights:\n' +
             '• Refined Aesthetic: A blend of modern and classical elements, ensuring a distinguished yet contemporary appeal.\n' +
             '• Optimized Functionality: Smart space planning for seamless workflow, client meetings, and legal research.\n' +
-            '• Premium Materials: High-quality finishes and bespoke furnishings that reflect prestige and credibility.\n' +
+            '• Premium Materials: High-quality finishes and be spoke furnishings that reflect prestige and credibility.\n' +
             '• Strategic Lighting: A well-lit environment that enhances focus and comfort while maintaining a formal ambiance.\n\n' +
             'Because every case deserves a setting that inspires confidence.',
     }
