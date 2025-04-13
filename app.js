@@ -138,7 +138,14 @@ const projects = [
         imageadd: 'http://localhost:5000/images/two.jpg',
         imageadds: 'http://localhost:5000/images/three.jpg',
         location: 'Dhar, Madhya Pradesh',
-        description: 'This is the description for Project A.',
+        description:
+            'A seamless fusion of living and business, this contemporary mixed-use development redefines urban spaces. Designed to accommodate both residential and commercial needs, this project offers an integrated lifestyle where work and home coexist effortlessly.\n\n' +
+            'Thoughtful Design Approach:\n' +
+            '• Two Distinct Design Options: Crafted with a balance of elegance and functionality.\n' +
+            '• Strategic Location: Situated in the heart of Dhar.\n' +
+            '• Modern Architecture: Clean lines and sustainable materials.\n' +
+            '• Optimized Spaces: Layouts for retail, office, and residences.\n\n' +
+            'This project embodies Udaan Studio’s vision of growth, connectivity, and contemporary living.'
     },
     {
         id: 2,
@@ -147,7 +154,14 @@ const projects = [
         imageadd: 'http://localhost:5000/images/2.png',
         imageadds: 'http://localhost:5000/images/3.png',
         location: 'Dhar, Madhya Pradesh',
-        description: 'This is the description for Project B.',
+        description:
+            'Presenting the elegantly crafted Advocate’s Cabin at Dhar Court, a space designed to exude authority, sophistication, and functionality. Thoughtfully curated by Udaan Studio, this cabin is more than just a workspace—it is a statement of professionalism and confidence.\n\n' +
+            'Design Highlights:\n' +
+            '• Refined Aesthetic: A blend of modern and classical elements, ensuring a distinguished yet contemporary appeal.\n' +
+            '• Optimized Functionality: Smart space planning for seamless workflow, client meetings, and legal research.\n' +
+            '• Premium Materials: High-quality finishes and bespoke furnishings that reflect prestige and credibility.\n' +
+            '• Strategic Lighting: A well-lit environment that enhances focus and comfort while maintaining a formal ambiance.\n\n' +
+            'Because every case deserves a setting that inspires confidence.',
     }
 ];
 
